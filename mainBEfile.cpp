@@ -1,0 +1,431 @@
+#include <iostream>
+#include <algorithm>
+#include <cstdio>
+#include <ctime>
+
+
+  using std::cout;
+   using std::cin;
+    using text_t = std::string;
+
+     std::string userPrimeMapInfo(std::string userLocationMapPrimeName, std::string userLocationMapPrimeDisc);
+    std::string userNonPrimeMapInfo(std::string userLocationMapNonPrimeName, std::string userLocationMapNonPrimeDisc);
+   std::string userDirectInfo(std::string userMapCreator, std::string userCreatorName);
+  std::string str_tolower(std::string s)  
+  { 
+   auto lower = [](unsigned char c){ return std::tolower(c);}; 
+ 
+    std::transform( s.begin(), s.end(),  
+                    s.begin(), lower); 
+    return s; 
+  } 
+
+
+  int main()
+  {
+ text_t userPrime;
+  text_t userPrimeElse;
+   text_t userName;
+    text_t userClass;
+      text_t userNameReset;
+        text_t userPrimeMapInfoMore;
+          text_t userNonPrimeMapInfoMore;
+       srand(time(NULL));
+
+    const text_t next("Next");
+     const text_t back("Back");
+      const text_t y("y");
+       const text_t n("n");
+        const text_t skip("skip");
+          const text_t start("start");
+        text_t userMapCreator = "Creator:";
+         text_t userMapDev = "Umnpai";
+          text_t userMapCreateCompli = userDirectInfo(userMapCreator, userMapDev);
+
+           text_t locationMapPrimeName1 = "Mystic Forest";
+
+            text_t locationMapPrimeDisc1 = "A place shrouded in mystery and legends in the world.\n"
+                                         "Located deep in the heart of the enchanted woods,\n"
+                                         "It is said to be the home of ancient spirits and mystical creatures.\n";
+
+             text_t locationMapPrimeLore1 = "The forest is characterized by its dense foliage, towering trees, and glowing flora,\n"
+                                          "Which gives it an otherworldly and magical aura. It is said that those who venture into the forest are granted magical powers,\n"
+                                          "But they must also face the dangerous creatures that inhabit it. According to legend, at the heart of Mystic Forest lies an ancient temple,\n"
+                                          "Guarded by a powerful spirit, which grants untold powers to those who prove themselves worthy.\n\n"
+                                          "Many adventurers and treasure hunters have tried to enter the forest to discover its secrets, but few have returned.\n" 
+                                          "Those who do return tell stories of the forest's mystical beauty, but also of its deadly traps and treacherous creatures.\n" 
+                                          "Only the bravest and most skilled adventurers dare to enter Mystic Forest, and even then, they may never return.\n";
+
+             text_t locationMapPrimeName2 = "Oblivion Oasis";
+             
+              text_t locationMapPrimeDisc2 = "Is a mysterious and foreboding place in the world.\n"
+                                            "It is a desolate wasteland, where the scorching sun beats down on the cracked and lifeless earth.\n";
+
+               text_t locationMapPrimeLore2 = "The oasis is surrounded by towering cliffs, which give it an eerie and secluded atmosphere.\n"
+                                             "Legends say that Oblivion Oasis is a cursed place, haunted by the spirits of those who died there long ago.\n"
+                                             "It is said that the oasis was once a lush and verdant paradise,\n\n"
+                                             "But it was destroyed by a powerful curse that left it a barren wasteland. Despite its desolation,\n"
+                                             "The oasis is rumored to hold great power and treasures. Many adventurers have sought to uncover the secrets of Oblivion Oasis,\n"
+                                             "But few have returned. Those who do return speak of the strange and otherworldly powers that emanate from the oasis,\n\n"
+                                             "As well as the dangerous creatures that inhabit its depths. The oasis is also rumored to hold an ancient temple,\n"
+                                             "Which contains powerful artifacts and magical knowledge. Only the most daring and resourceful adventurers are brave enough to venture into Oblivion Oasis,\n"
+                                             "But those who do may discover untold riches and powers, if they can survive the cursed wasteland and uncover its secrets.\n";
+
+                text_t userPrimeMapMore;
+
+               text_t userPrimeMapMoreCompli1 = userPrimeMapInfo(locationMapPrimeName1,  locationMapPrimeLore1);
+
+              text_t userPrimeMapMoreCompli2 = userPrimeMapInfo(locationMapPrimeName2,  locationMapPrimeLore2);
+
+             text_t locationMapNonPrimeName1 = "Skyfall Summit";
+
+           text_t locationMapNonPrimeDisc1 = "Is a towering mountain peak that reaches high above the clouds in the world.\n"
+                                             "It is a place of great natural beauty, with breathtaking views of the surrounding landscape.\n";
+
+          text_t locationMapNonPrimeLore1 =  "The summit is said to be home to a powerful dragon, who guards a vast treasure hoard.\n"
+                                             "Many adventurers have attempted to climb the mountain to claim the treasure, but few have succeeded.\n"
+                                             "The journey up the mountain is treacherous, with steep cliffs and perilous drops,\n"
+                                             "And the dragon fiercely defends its territory from intruders.\n\n"
+                                             "Those who do make it to the summit describe it as a place of great power and mystery.\n"
+                                             "The air is thin and charged with magical energy, and the dragon's lair is surrounded by ancient runes and symbols,\n"
+                                             "That hint at the power of the treasure it guards. The summit is also said to be the site of a powerful magical ritual,\n"
+                                             "Performed by the dragon to maintain the balance of nature in the world below.\n\n"
+                                             "Only the bravest and most skilled adventurers dare to attempt the climb to Skyfall Summit,\n"
+                                             "but those who succeed may unlock untold powers and riches,\n"
+                                             "if they can overcome the dragon's defenses and survive the journey back down the treacherous mountain.\n";
+
+          text_t locationMapNonPrimeName2 = "Origin Oasis";
+
+           text_t locationMapNonPrimeDisc2 = "Is a place of ancient and mystical power in the world. It is a lush and verdant oasis,\n"
+                                             "Nestled deep in the heart of a vast desert.\n";
+
+            text_t locationMapNonPrimeLore2 = "The oasis is fed by a hidden spring, which is said to have been blessed by the gods themselves.\n"
+                                              "The waters of Origin Oasis are said to have healing and restorative properties,\n"
+                                              "And those who drink from them are granted renewed vigor and vitality.\n\n"
+                                              "The oasis is also surrounded by towering palm trees and flowering vines,\n"
+                                              "which give it a tranquil and idyllic atmosphere.\n"
+                                              "Legends say that Origin Oasis was the site of the world's creation,\n\n"
+                                              "And that the gods themselves once walked its hallowed grounds.\n"
+                                              "It is said that the oasis is home to powerful magic,\n\n"
+                                              "And that those who seek it may unlock great mysteries and powers.\n"
+                                              "Many adventurers have journeyed to Origin Oasis to uncover its secrets,\n\n"
+                                              "But the journey is perilous, as the desert surrounding the oasis is home to dangerous sandstorms and deadly creatures.\n"
+                                              "Those who do make it to the oasis describe it as a place of great peace and spiritual power,\n\n"
+                                              "Where one can connect with the divine and unlock their true potential.\n"
+                                              "Only the most pure of heart and strong of will are said to be able to unlock the full power of Origin Oasis,\n"
+                                              "but those who do may become the stuff of legend.\n";    
+          
+             text_t userNonPrimeMapMore;
+
+              text_t userNonPrimeMapMoreCompli1 = userNonPrimeMapInfo(locationMapNonPrimeName1,  locationMapNonPrimeLore1);
+
+                text_t userNonPrimeMapMoreCompli2 = userNonPrimeMapInfo(locationMapNonPrimeName2,  locationMapNonPrimeLore2);
+
+        
+        int userPrimeMap;
+         int userNonPrimeMap;
+          int age;
+            int userNumOfId = (rand() % 10000) + 1000;
+             
+
+                /*  How to add A map:
+                  1. Change the variable for PRIME MAPS:     locationMapPrimeName || locationMapPrimeDisc || locationMapPrimeLore || userPrimeMapMoreCompli
+                  2. Change the variable for NON-PRIME MAPS: locationMapNonPrimeName || locationMapNonPrimeDisc || locationMapNonPrimeLore || userNonPrimeMapMoreCompli
+                  3. Add a variable from (1-inf.): userNonPrimeMapInfo
+                */
+               
+           // USER NAME CONFIG
+
+        
+     cout << "Enter your username: ";
+     std::getline(cin, userName);
+
+        while(userName.empty()){
+            cout << "You Didn't enter your username.\n";
+              cout << "Enter your new username: ";
+                getline(cin, userName);
+        }  
+          while(userName.length() <= 3 || userName.length() == 0){
+            cout << "Your username can't have less than 3 characters\n";
+              cout << "Enter your new username: ";
+                getline(cin, userName);
+        }
+          while(userName.length() >= 24 || userName.length() >= 24){
+              cout << "Your username can't have more than 3 characters\n";
+                cout << "Enter your new username: ";
+                  getline(cin, userName);
+          }         
+              cout << "USERNAME: " << userName << "#" << userNumOfId << '\n';
+                do{
+                cout << "Set A new username?(y/n): ";
+                  std::getline(cin, userNameReset);
+                    
+                    if(userNameReset == y || userNameReset == "y"){
+                        cout << "Enter your username: ";
+                          std::getline(cin, userNameReset);
+
+                             while(userNameReset.empty()){
+                               cout << "You Didn't enter your username.\n";
+                                 cout << "Enter your new username: ";
+                                   getline(cin, userNameReset);
+                                     }  
+                                      while(userNameReset.length() <= 3 || userName.length() == 0){
+                                        cout << "Your username can't have less than 3 characters\n";
+                                          cout << "Enter your username: ";
+                                            getline(cin, userNameReset);
+                                              }
+                                                while(userNameReset.length() >= 24 || userNameReset.length() >= 24){
+                                                  cout << "Your username can't have more than 3 characters\n";
+                                                    cout << "Enter your username: ";
+                                                      getline(cin, userNameReset);
+                                                        }         
+                                                          cout << "USERNAME: " << userNameReset << "#" << userNumOfId << '\n';
+                                                            }
+                                                          else if(userNameReset == n || userNameReset == "n"){
+                                                              do{
+                                                              cout << "Type 'skip' to continue:  ";
+                                                                cin >> userNameReset;
+                                                              }while(userNameReset != skip || userNameReset != "skip");
+                                                                if(userNameReset == skip || userNameReset == "skip"){
+                                                                  cout << "Continuing...\n";
+                                                                  break;
+                                                                }
+                                                              }  
+                  }while(userNameReset != y || userNameReset != n);
+      
+    do{
+    cout << "Enter your Age: ";
+    cin >> age;
+  
+  if(age >= 101 || age <= 0){
+    cout << "Please enter a valid age between(1-100).\n";
+  }
+  else if(age >= 18){
+    cout << "You are old enough to play the game!\n";
+    break;
+  }
+  else if(age >= 1){
+    cout << "You are not old enough to play the game!\n";  
+  }
+}while(age >= 101 || age <= 0);
+
+     // USER MAP PRIME/NORMAL SELECTION
+  
+
+      do{
+      cout << "****** PRIME MAPS AVAILABLE *******\n";
+      cout << "Type 'Next' if you wish to select.\nType 'Back' if you wish to exit.\n";
+      cout << "Enter your choice: ";
+      cin >> userPrime;
+      cout << "***********************************\n";
+      }while(userPrime.length() > 4 || userPrime.length() < 4);  
+     
+     if(userPrime == next || userPrime == "Next"){
+
+      cout << "You selected the option " << "Next" << "!\n\n";
+       cout << "Redirecting you to Prime Maps..." << '\n';
+
+        cout << "[1]: " << locationMapPrimeName1 << '\n';
+       cout << "[2]: " << locationMapPrimeName2 << '\n'; 
+
+      do{
+      cout << "Select a map between (1-2): ";
+      cin >> userPrimeMap;
+      
+      switch(userPrimeMap){
+            case 1:    cout << "Successfully selected the map\n" << locationMapPrimeName1 << " || " << userMapCreateCompli << '\n' << "Map Description:\n" << locationMapPrimeDisc1 << '\n';
+                        do{
+                      cout << "View more information?(y/n): ";
+                     cin >> userPrimeMapMore;
+                
+                    if(userPrimeMapMore == y || userPrimeMapMore == "y")
+                    {
+                     cout << "Getting map information...\n\n";
+                      cout << "More map details:\n";
+                      cout << userPrimeMapMoreCompli1 << '\n';
+                        cout << "---------------------------------------------\n";
+                         
+                                          
+                        cout << "Type 'start' to exit of this menu\n";
+                           getline(cin, userPrimeMapInfoMore);
+                            cout << "Input answer: "; 
+                              std::getline(cin, userPrimeMapInfoMore);
+                              
+                              while(userPrimeMapInfoMore.empty()){
+                                  cout << "You Didn't typed in your option\n";
+                                    cout << "Input answer: ";
+                                      getline(cin, userPrimeMapInfoMore);
+                              }
+                                 do{
+                                if(userPrimeMapInfoMore == start || userPrimeMapInfoMore == "start"){
+                                      cout << "Redirecting you to the menu " << userName << '\n';
+                                        cin >> userPrimeMapInfoMore;
+                                          break;
+                                }
+
+                                else if(userPrimeMapInfoMore != start || userPrimeMapInfoMore.length() > 4){
+                                  cout << "Error; not a valid option, try again.\n";
+                                     cout << "Type 'start' to exit of this menu\n";
+                                       cout << "Input answer: ";
+                                        getline(cin, userPrimeMapInfoMore);
+                                }
+
+                             }while(userPrimeMapInfoMore != start || userPrimeMapInfoMore.length() > 4);
+                    }
+                      else if(userPrimeMapMore == n || userPrimeMapMore == "n")
+                    {
+                      cout << "Redirecting you to the game...\n";
+                       for(int i = 25; i >= 0; i-=2)
+                       {
+                        if(i == 15)
+                         {
+                         continue;
+                          }
+                          else if(i == 0)
+                           {
+                           break;
+                            }
+                             cout << i << '\n';
+                              }
+                               cout << "You've succesfully redirected in to the game.\n";
+                                }
+                    }while(userPrimeMapMore != n || userPrimeMapMore != y);
+                              break;
+                              
+            case 2:            cout << "Successfully selected the map\n" << locationMapPrimeName2 << " | " << userMapCreateCompli << '\n' << "Map Description:\n" << locationMapPrimeDisc2 << '\n';
+                              cout << "View more information?(y/n): ";
+                             cin >> userPrimeMapMore;
+                            if(userPrimeMapMore == y || userPrimeMapMore == "y")
+                            {
+                           cout << "Getting map information...\n";
+                          cout << userPrimeMapMoreCompli2;
+                          cout << "Redirecting you to the game...\n";
+                         for(int i = 25; i >= 0; i-=2)
+                     {
+                    if(i == 15)
+                    {
+                   continue;
+                   }
+                  else if(i == 0)
+                  {
+                   break;
+                    }
+                    cout << i << '\n';
+                     }
+                      cout << "You've succesfully redirected in to the game.\n"; 
+                       cin >> userPrimeMapMore;
+                        }
+                       else if(userPrimeMapMore == n || userPrimeMapMore == "n")
+                      {
+                      cout << "Redirecting you to the game...\n";
+                       for(int i = 25; i >= 0; i-=2)
+                       {
+                        if(i == 15)
+                         {
+                         continue;
+                          }
+                          else if(i == 0)
+                           {
+                           break;
+                            }
+                             cout << i << '\n';
+                              }
+                               cout << "You've succesfully redirected in to the game.\n";
+                                }
+                              break;   
+                            default: cout << "Error; You didn't select a map...";
+       }
+      }while(userPrimeMap > 2 && userPrimeMap <= 0);
+
+
+
+  } 
+      else if(userPrime == back || userPrime == "Back"){
+        cout << "You selected the option " << "Back" << "!\n\n";
+         cout << "Redirecting you to Non-prime maps...\n";
+
+          cout << "Map 1: " << locationMapNonPrimeName1 << '\n';
+         cout << "Map 2: " << locationMapNonPrimeName2 << '\n';
+
+      do{
+      cout << "Select a map between (1-2): ";
+      cin >> userNonPrimeMap;
+
+      switch(userNonPrimeMap){
+            case 1:   cout << "Successfully selected the map\n" << locationMapNonPrimeName1 << " | " << userMapCreateCompli << '\n' << "Map Description:\n" << locationMapNonPrimeDisc1 << '\n';
+                     cout << "View more information?(y/n): ";
+                    cin >> userNonPrimeMapMore;
+                    if(userNonPrimeMapMore == y || userNonPrimeMapMore == "y")
+                    {
+                   cout << "Getting map information...\n";
+                  cout << userNonPrimeMapMoreCompli1;
+                 cout << "Redirecting you to the game...\n";
+                for(int i = 25; i >= 0; i-=2)
+                        {
+                    if(i == 15)
+                    {
+                   continue;
+                   }
+                  else if(i == 0)
+                  {
+                   break;
+                    }
+                    cout << i << '\n';
+                     }
+                      cout << "You've succesfully redirected in to the game.\n";  
+                       cin >> userNonPrimeMapMore;     
+                    }
+                    
+                     else if(userNonPrimeMapMore == n || userNonPrimeMapMore == "n")
+                      {
+                        cout << "Redirecting you to the game...\n";
+                         for(int i = 25; i >= 0; i-=2)
+                          {
+                           if(i == 15)
+                            {
+                             continue;
+                              }
+                              else if(i == 0)
+                               {
+                                break;
+                                 }
+                                  cout << i << '\n';
+                                   }
+                                    cout << "You've succesfully redirected in to the game.\n";
+                                    }
+                                   break;
+                            
+              case 2:             cout << "Successfully selected the map\n" << locationMapNonPrimeName2 << " | " << userMapCreateCompli << '\n' << "Map Description:\n" << locationMapNonPrimeDisc2 << '\n';
+                                 cout << "View more information?(y/n): ";
+                                cin >> userNonPrimeMapMore;
+                               if(userNonPrimeMapMore == y || userNonPrimeMapMore == "y")
+                               {
+                              cout << "Getting map information...\n";
+                             cout << userNonPrimeMapMoreCompli2;
+                            }
+                       else if(userNonPrimeMapMore == n || userNonPrimeMapMore == "n")
+                        cout << "type 'skip' to continue: ";
+                          
+                              break;   
+                                default: cout << "Error; You didn't select a map...";   
+       }
+      }while(userNonPrimeMap > 2 && userNonPrimeMap <= 0);
+       
+  }
+
+    return 0;
+}
+
+
+    std::string userPrimeMapInfo(std::string userLocationMapPrimeName, std::string userLocationMapPrimeLore)
+     {
+       return userLocationMapPrimeName + '\n' + userLocationMapPrimeLore + '\n';
+    }
+      std::string userNonPrimeMapInfo(std::string userLocationMapNonPrimeName, std::string userLocationMapNonPrimeLore)
+       {
+         return userLocationMapNonPrimeName + '\n' + userLocationMapNonPrimeLore + '\n';
+      }
+       std::string userDirectInfo(std::string userMapCreator, std::string userCreatorName)
+        {
+          return userMapCreator + " " + userCreatorName + '\n';
+      }
