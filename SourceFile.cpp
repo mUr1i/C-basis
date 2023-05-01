@@ -1,0 +1,405 @@
+#include <iostream>
+#include <ctime>
+#include <algorithm>
+#include <cmath>
+
+void userEmailDisc(std::string userEmail);
+std::string userSpawnLocationFinal(std::string userSpawnName, std::string userSpawnDis);
+std::string userSpawnInfoFinal(std::string userSpawnName, std::string userSpawnLore);
+using std::cout;
+using std::cin;
+using text_t = std::string;
+
+std::string str_tolower(std::string s)  
+ { 
+   auto lower = [](unsigned char c){ return std::tolower(c);}; 
+ 
+    std::transform( s.begin(), s.end(),  
+                    s.begin(), lower); 
+    return s; 
+} 
+
+
+int main()
+{
+
+ text_t userName;
+ text_t userGender;
+ text_t userClass;
+ text_t y("y");
+ text_t n("n");
+ text_t male("male");
+ text_t female("female");
+ text_t userEmail;
+ text_t userSpawnDis;
+ text_t userContinue("continue");
+ text_t userSpawnDiscMore;
+ text_t userGenderAns;
+
+ int userClassPick;
+ int age;
+ int endSeq;
+ int userSpawnSelect;
+ int userSpawnMoreInfo;
+
+ std::cin.clear();
+ fflush(stdin);
+
+    do{
+    cout << "Enter your username: ";
+    std::getline(cin, userName);
+  
+  while(userName.empty()){
+    cout << "You didn't enter your userName\n" << "Enter your username: ";
+    std::getline(cin, userName);
+    continue;
+  }
+  if(userName.length() < 6){
+    cout << "Your username can't be lower than 6 characters\n";
+    break;
+  }
+  else if(userName.length() > 12){
+      cout << "Your name can't be over 12 characters\n";
+      break;
+  }
+}while(userName != userName);
+
+   do{
+    cout << "Enter your Age: ";
+    cin >> age;
+  
+  if(age >= 101 || age <= 0){
+    cout << "Please enter a valid age between(1-100).\n";
+  }
+  else if(age >= 18){
+    cout << "You are old enough to play the game!\n";
+    break;
+  }
+  else if(age >= 1){
+    cout << "You are not old enough to play the game!\n";  
+  }
+}while(age >= 101 || age <= 0);
+  
+   cout << userName << " You are " << age << " Years old\n";
+   cout << "Welcome " << userName << " to Galactic Odyssey Quest\n";
+
+    
+   do{
+    cout << "Select your gender: ";
+   std::getline(cin, userGender);
+
+   if(userGender.empty()){
+    cout << "(Male/Female)\n";
+    cout << "Select your gender: ";
+    std::getline(cin, userGender);
+    continue;
+  }
+    if(userGender == male || userGender == "Male"){
+    cout << "You selected to be a Male.\n";
+    break;
+  }
+  else if(userGender == female || userGender == "Female"){
+    cout << "You selected to be a Female.\n";
+    break;
+  }
+  else if(userGender != male || userGender != "Male"){
+    cout << "Invalid character, Pls enter only (Male/Female) option " << userName << " thank you" << '\n';
+    continue;
+  }
+  else if(userGender != female || userGender != "Female"){
+    cout << "Invalid character, Pls enter only (Male/Female) option " << userName << " thank you" << '\n';
+    continue;
+  }
+}while(userGender != male || userGender != female);
+
+
+ cout << "Enter your email: ";
+ cin >> userEmail;
+
+  if(userEmail.empty()){
+  cout << "You didn't enter your email.\n";
+  cin >> userEmail;
+  }
+
+  void userEmailDisc(std::string userEmail);
+{
+  userEmail.append("@gmail.com");
+  cout << "Your Email is " << userEmail << '\n';
+  
+  if(userEmail.length() <= 1 || userEmail.length() < 10){
+    cout << "Your username is too short\n";
+    cin >> userName;
+  }
+  else if(userEmail.length() > 34){
+      cout << "Your username is too long\n";
+      cin >> userName;
+    } 
+}
+
+
+   cout << "Randomize class(y/n)? ";
+   cin >> userClass;
+
+  if(userClass == y){
+  srand(time(0));
+
+ int randGenClass = rand() % 5+1;
+
+ switch(randGenClass){
+    case 1:
+    std::cout << "You selected Mage!\n";
+    break;
+    case 2:
+    std::cout << "You selected Figther!\n";
+    break;
+    case 3:
+    std::cout << "You selected Assassin!\n";
+    break;
+    case 4:
+    std::cout << "You selected Necromancer!\n";
+    break;
+    case 5:
+    std::cout << "You selected Cleric!\n";
+    break;
+ }
+}
+
+
+ else if(userClass == n){
+  cout << "************ Select Class ************\n";
+  text_t userClass1 = "MAGE - These characters do not usually have traditional weapons but use spells to fight or defend themselves from attacks.\n" 
+                      "       They usually have the weakest armor because their strong point is fighting from a distance by throwing spells.\n";
+  text_t userClass2 = "FIGTHER - These are usually the most powerful character classes in video games. Well established in attacks and combat,\n" 
+                      "          These power characters have the strongest set of assets to support them.\n";
+  text_t userClass3 = "ASSASSIN - This character class has a more subtle approach, unlike warriors brute force.\n"
+                      "           They use specific skills, such as stealing, to complete missions.\n";     
+  text_t userClass4 = "CLERIC -  Subclass of the Mage, they help a lot in the diversity of the characters in the game.\n";
+  text_t userClass5 = "NECROMANCER - These characters in games and spread diseases such as plague and supplement the burst damage in the team.\n"; 
+
+  cout << userClass1 << '\n';
+  cout << userClass2 << '\n';
+  cout << userClass3 << '\n';
+  cout << userClass4 << '\n';
+  cout << userClass5 << '\n';
+ do{
+  cout << "Pick your class(1-5): ";
+  cin >> userClassPick;
+  
+  text_t mage("Mage");
+  text_t fighter("Figther");
+  text_t assasin("Assasin");
+  text_t cleric("Cleric");  
+  text_t necromancer("Necromancer");
+  
+  switch(userClassPick){
+     case 1:
+     cout << "You selected " << mage << " to be your class\n";
+     break;
+     case 2:
+     cout << "You selected " << fighter << " to be your class\n";
+     break;
+     case 3:
+     cout << "You selected " << assasin << " to be your class\n";
+     break;
+     case 4:
+     cout << "You selected " << cleric << " to be your class\n";
+     break;
+     case 5:
+     cout << "You selected " << necromancer << " to be your class\n";
+     break;
+     default:
+     cout << "Not a valid class pick choice try again.\n";
+  }
+ }while(userClassPick > 5 || userClassPick <=  0);
+
+  cout << "**************************************\n";
+}
+else{
+  cout << "Invalid Character only use(y/n).\n";
+}
+   
+  cout << "Redirecting you to the game...\n";
+  for(int i = 25; i >= 0; i-=2){
+    if(i == 15){
+      continue;
+    }
+    else if(i == 0){
+      break;
+  }
+   cout << i << '\n';
+}
+   cout << "You've succesfully redirected in to the game.\n";
+
+  cout << "Type 'continue' to select your spawn distenation: ";
+  cin >> userSpawnDis;
+
+  if(userSpawnDis == userContinue && userSpawnDis == "continue"){
+   cout << "Select your spawn distenations" << userName << '\n';
+   cout << "****************** SPAWN DISTENATIONS AVAILABLE ******************\n";
+
+   text_t spawnLocation1 = "CRYSTAL CAVERNS\n";
+   text_t spawnLocation2 = "LOST CITY OF ATLANTIS\n";
+   text_t spawnLocation3 = "ENCHANTED FOREST\n";
+   text_t spawnLocation4 = "EnlightHighen\n";
+
+   text_t spawnLocation1Des = "These caverns were filled with precious gems and glittering crystals,\n"
+                              "And adventurers from far and wide would travel there to try and claim some for themselves.\n" 
+                              "However, the caverns were also home to dangerous creatures like giant scorpions and venomous spiders,\n" 
+                              "Making it a treacherous journey.\n";
+
+   text_t spawnLocation2Des = "The city had been submerged beneath the ocean for centuries, but now it had risen once again.\n"
+                              "It was said that the city held ancient technology and treasures that had been lost to time. However,\n" 
+                              "The city was guarded by powerful guardians who would stop at nothing to protect their home.\n";
+
+   text_t spawnLocation3Des = "The forest was filled with magic and wonder, and it was said that those who entered its borders would never be the same again.\n" 
+                              "The forest was home to fairies and other magical creatures, as well as dangerous beasts and treacherous terrain.\n" 
+                              "It was up to the players to navigate the forest and uncover its secrets.\n";      
+
+   text_t spawnLocation4Des = "EnlightHighen was a realm of light and enlightenment,\n" 
+                              "A place where the very air was imbued with a powerful energy that filled,\n" 
+                              "Those who entered with a sense of clarity and purpose.\n";
+
+
+   text_t spawnLocationDescMore1 = "Legend had it that the Crystal Caverns were once inhabited by a powerful race of crystal beings, who imbued the caverns with their mystical power.\n"
+                                  "And though the crystal beings were long gone, their magic still lingered in the air, waiting for those brave enough to seek it out.\n\n"
+                                  "As adventurers delved deeper into the Crystal Caverns, they began to notice the effects of the magical energy that permeated the caverns.\n" 
+                                  "Their weapons became sharper, their senses heightened, and their bodies filled with a newfound vitality. They realized that the Crystal Caverns held not just treasure,\n" 
+                                  "but powerful buffs that could aid them on their journey.\n\n"
+                                  "Some buffs granted the adventurers greater speed and agility, allowing them to move quickly and dodge attacks with ease. Others granted them greater strength and resilience,\n" 
+                                  "allowing them to fight off even the toughest foes. And still others granted them powerful magic spells, allowing them to cast devastating attacks and protect themselves from harm.\n\n"
+                                  "But the Crystal Caverns were not for the faint of heart. Many adventurers had ventured into its depths, never to return. For every treasure and buff that lay hidden in its depths,\n" 
+                                  "there were countless dangers and traps waiting to ensnare the unwary.\n\n"
+                                  "Only the bravest and most skilled adventurers could hope to survive the Crystal Caverns, but those who did would emerge stronger, faster, and more powerful than ever before.\n";
+   
+   text_t spawnLocationDescMore2 = "Adventurers who dared to explore the Lost City of Atlantis soon discovered that it was more than just a ruin.\n"
+                                  "The city was imbued with powerful magical energy, and the air itself seemed to pulse with power. The adventurers realized that the city held not just treasure,\n"
+                                  "but powerful buffs that could aid them on their journey.\n\n"
+                                  "As they explored the city's crumbling buildings and maze-like streets, the adventurers found that they had been granted incredible new abilities.\n"
+                                  "Some found that their weapons had been infused with magical energy, allowing them to strike down their foes with greater ease. Others found that they could move with incredible speed and agility,\n"
+                                  "dodging attacks and leaping across impossible distances.\n\n"
+                                  "And still others found that they had gained powerful magic spells, capable of summoning forth elemental energy and unleashing devastating attacks.\n"
+                                  "The city seemed to be granting the adventurers power beyond their wildest dreams.\n\n"
+                                  "But the Lost City of Atlantis was not a place to be taken lightly. The city was guarded by powerful creatures,\n"
+                                  "remnants of the ancient civilization that had built it. And as the adventurers delved deeper into the city's secrets,\n"
+                                  "they discovered that there were dark forces at work, eager to claim the city's power for themselves.\n\n"
+                                  "Only the bravest and most skilled adventurers could hope to survive the dangers of the Lost City of Atlantis,\n" 
+                                  "but those who did would emerge with incredible new abilities and powers,\n"
+                                  "ready to take on even the most daunting challenges that lay ahead.\n";
+
+   text_t spawnLocationDescmore3 = "As adventurers made their way through the forest, they began to notice that the magic of the place was seeping into their very beings.\n" 
+                                  "Their senses grew sharper, their movements became more fluid and graceful, and they felt a newfound strength flowing through their bodies.\n\n"
+                                  "The forest granted them powerful buffs, each one tailored to their unique skills and abilities. Those who were skilled with a bow found that their arrows flew straight and true,\n"
+                                  "striking their targets with deadly precision. Those who favored swords and axes found that their weapons were infused with a magical energy,\n"
+                                  "allowing them to cleave through even the toughest armor.\n\n"
+                                  "And those who had the gift of magic found that the forest's enchantments had amplified their abilities,\n" 
+                                  "allowing them to cast spells with greater ease and precision than ever before.\n\n"
+                                  "But as they made their way deeper into the forest, the adventurers realized that the magic of the place was not without its dangers.\n"
+                                  "The creatures that roamed the forest had been imbued with powerful enchantments, making them more dangerous and deadly than any they had faced before.\n"
+                                  "But for those who were brave enough to face the dangers of the Enchanted Forest, the rewards were great. They emerged from the forest stronger, faster,\n"
+                                  "and more powerful than ever before, ready to take on whatever challenges lay ahead.\n";
+
+   text_t spawnLocationDescmore4 = "As adventurers made their way through the realm, they felt a powerful sense of focus and determination wash over them.\n"
+                                   "Their minds grew sharper, their thoughts clearer, and they felt a newfound wisdom filling their hearts.\n\n"
+                                   "The realm granted them powerful buffs, each one tailored to their unique skills and abilities.\n"
+                                   "Those who were skilled with magic found that their spells were amplified, allowing them to cast more powerful spells than ever before.\n"
+                                   "Those who favored physical combat found that their strength and reflexes had been heightened, allowing them to strike with greater speed\n"
+                                   "and precision.\n\n"
+                                   "And those who were skilled at stealth found that the realm's energy had made them more agile and nimble than ever before,\n"
+                                   "allowing them to move with greater speed and grace through the world around them.\n\n"
+                                   "But as they made their way deeper into the realm, the adventurers realized that the power of EnlightHighen was not without its dangers.\n" 
+                                   "The realm was guarded by powerful beings of light and energy, each one more powerful and dangerous than the last.\n\n"
+                                   "But for those who were brave enough to face the dangers of EnlightHighen, the rewards were great. They emerged from the realm filled with a sense of purpose and enlightenment,\n" 
+                                   "ready to take on whatever challenges lay ahead with newfound strength and wisdom.\n";                        
+                                   
+   text_t userSpawnFinal1 = userSpawnLocationFinal(spawnLocation1, spawnLocation1Des);
+   text_t userSpawnFinal2 = userSpawnLocationFinal(spawnLocation2, spawnLocation2Des);
+   text_t userSpawnFinal3 = userSpawnLocationFinal(spawnLocation3, spawnLocation3Des);
+   text_t userSpawnFinal4 = userSpawnLocationFinal(spawnLocation4, spawnLocation4Des);
+   do{
+   cout << spawnLocation1 << '\n';
+   cout << spawnLocation2 << '\n';
+   cout << spawnLocation3 << '\n';
+   cout << spawnLocation4 << '\n';
+  
+   cout << "SELECT YOUR SPAWN LOCATION(1-4)\n";
+   cin >> userSpawnSelect;
+    
+    
+  
+    switch(userSpawnSelect)
+    {
+    case 1:
+    cout << "You Selected the map " << spawnLocation1 << '\n' << userSpawnFinal1;
+    break;
+    case 2:
+    cout << "You Selected the map " << spawnLocation2 << '\n' << userSpawnFinal2;
+    break;
+    case 3:
+    cout << "You Selected the map " << spawnLocation3 << '\n' << userSpawnFinal3;
+    break;
+    case 4: 
+    cout << "You Selected the map " << spawnLocation4 << '\n' << userSpawnFinal4;
+    break;
+    default:
+    cout << "Not a valid map # input\n";
+    }
+  }while(userSpawnSelect > 4 || userSpawnSelect <=  0); 
+
+  cout << "More info about the locations(y/n)?: ";
+  cin >> userSpawnDiscMore;
+
+  if(userSpawnDiscMore == y){
+    do{
+   cout << "SELECT THE MAP YOU WANT TO VIEW THEIR LORE(1-4)";
+   cin >> userSpawnMoreInfo;
+   
+   cout << spawnLocation1 << '\n';
+   cout << spawnLocation2 << '\n';
+   cout << spawnLocation3 << '\n';
+  
+   text_t userSpawnFinal1 = userSpawnInfoFinal(spawnLocation1, spawnLocationDescMore1);
+   text_t userSpawnFinal2 = userSpawnInfoFinal(spawnLocation2, spawnLocationDescMore2);
+   text_t userSpawnFinal3 = userSpawnInfoFinal(spawnLocation3, spawnLocationDescmore3);
+   text_t userSpawnFinal4 = userSpawnInfoFinal(spawnLocation4, spawnLocationDescmore4);
+  
+  
+  switch(userSpawnMoreInfo)
+    {
+    case 1:
+    cout << "You Selected the map\n" << spawnLocation1 << " Creator: Chatgpt\n" << userSpawnFinal1;
+    break;
+    case 2:
+    cout << "You Selected the map\n" << spawnLocation2 << " Creator: Chatgpt\n" << userSpawnFinal2;
+    break;
+    case 3:
+    cout << "You Selected the map\n" << spawnLocation3 << " Creator: Chatgpt\n" << userSpawnFinal3;
+    break;
+    case 4:
+    cout << "You Selected the map\n" << spawnLocation4 << " Creator: Chatgpt/dev\n" << userSpawnFinal4;
+    break;
+    default:
+    cout << "Not a valid map # input try again\n";
+    }
+  }while(userSpawnMoreInfo > 4 || userSpawnMoreInfo <= 0); 
+ }
+  else if(userSpawnDiscMore == n){
+    
+    do{
+      cout << "Press continue to start the game: ";
+      cin >> userSpawnDiscMore;
+    }while(userSpawnDiscMore != "continue" || userSpawnDiscMore != userContinue);
+  }
+} 
+ cout << "Enjoy the game " << userName;
+
+  return 0;
+}
+
+
+std::string userSpawnLocationFinal(std::string userSpawnName, std::string userSpawnDis){
+   return userSpawnName + '\n' + userSpawnDis + '\n';
+}
+
+std::string userSpawnInfoFinal(std::string userSpawnName, std::string userSpawnLore){
+   return userSpawnName + '\n' + userSpawnLore + '\n';
+}
