@@ -5,16 +5,16 @@
 > This program lets you purchase the units inspired by a ww1 era genre and etc. similar to the game Total war.
 > Not fully worked on, still updating will be back soon.
 
-FEATURES TO FIX & ADD IN THE FUTURE
+## FEATURES TO FIX & ADD IN THE FUTURE ⚒🚧
 
-    [ FIXED THE BUGS AND FEATURES]
-    [ FIXED UNIT PURCHASING MULTIPLE ENTITY ]
-    [ ADDING MAP SELECTION ]
+    [ FIXED THE BUGS AND FEATURES] ✅
+    [ FIXED UNIT PURCHASING MULTIPLE ENTITY ] ❎
+    [ ADDING MAP SELECTION ] ✅
 
 | CURRENT FEATURES | Description |
 | --- | --- |
-| `Purchasing unit` | select any unit to purchase. |
+| `Purchasing unit` | Select any unit to purchase. |
 | `Cancelling purchase` | By typing **deturn** you can easily return and select units you wnated to purchase. |
-
+| `Map Selection` | Choose the map you like and learn about their details *3 maps added* |
 
 Many more things will be added star this repository to keep updated on what to change and features for the future.
