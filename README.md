@@ -42,7 +42,7 @@ How can I contribute on the repository?[^2].
 
   ***Instructions for the program:*** 📋
   
-1. Download the program by clicking the [link](https://github.com/Saiki3/C-basis/blob/main/UserGitStatus.exe)
+1. Download the program by clicking the [link](https://github.com/Saiki3/C-basis/tree/main/UserGitStatus_Source)
 
    - Turn off microsoft defender or any virus blocker etc. while downloading the program.
      - This may disrupt or damage the program file when running on your pc.
