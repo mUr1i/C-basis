@@ -6,14 +6,14 @@ int main() {
     // fill() = Fills a range of elements with a specified value
     //          fill(begin, end, value)
         
-        const int size = 150;    
+        const int size = 60;    
         std::string userItemRegist[size];
 
-        fill(userItemRegist, userItemRegist + (size/3), "Apple");
+        fill(userItemRegist, userItemRegist + (size/3), "Apple\n" "Red fruit");
             // splits into one ...
-        fill(userItemRegist + (size/3), userItemRegist + (size/3)*2, "Banana");
+        fill(userItemRegist + (size/3), userItemRegist + (size/3)*2, "Banana\n" "Yellow fruit");
             // splits into two ...
-        fill(userItemRegist + (size/3)*2, userItemRegist + size, "Melon");
+        fill(userItemRegist + (size/3)*2, userItemRegist + size, "Grapen\n" "Purple fruit");
             // splits into three ...
 
         for(std::string userItemRegistSaved : userItemRegist){
