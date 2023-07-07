@@ -1,4 +1,4 @@
-# C++ library of my programs & source files
+# C++ library of my programs & source files [![License - MIT](https://img.shields.io/badge/License-MIT-FAFAD2)](https://github.com/Saiki3/C-basis/blob/main/LICENSE) [![C++](https://img.shields.io/badge/C%2B%2B-00CED1?logo=cplusplus&logoColor=white)](https://github.com/search?q=c%2B%2B+language%3A&type=repositories)
 
 ## FAQ :pushpin:
 
