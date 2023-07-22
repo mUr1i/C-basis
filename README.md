@@ -2,7 +2,7 @@
 
 ## FAQ :pushpin:
 
-Hello I am Joshua or you can call me **Dima**, I'm an highschool student from Eastern Asia, I have *slightly* experience of C++ still learning and decided to create my own repository 
+Hello I'm mUri and thats about it, I'm an highschool student from Eastern Asia, I have *slightly* experience of C++ still learning and decided to create my own repository 
 to preserve and document about my experiences with the language and might let people see and use my files when I get older and whatelse, People can find something valuable and freely use it and provide feedbacks about issues of it.
 
 | Learned    | Languages  |
